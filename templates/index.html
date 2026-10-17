@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Feedback Application</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Online Feedback Application</h1>
+        <p>Examination Center Experience</p>
+    </header>
+
+    <main>
+        <h2>Welcome</h2>
+        <p>Login to continue</p>
+
+        <form id="login-form" action="/" method="POST">
+            <label for="role">Login as:</label>
+            <select id="role" name="role">
+                <option value="student">Student</option>
+                <option value="staff">Staff</option>
+            </select>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </main>
+<script src="static/js/script.js"></script>
+</body>
+</html>

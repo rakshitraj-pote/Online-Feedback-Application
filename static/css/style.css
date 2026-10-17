@@ -1,0 +1,51 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
+}
+
+header {
+    background-color: #111;
+    color: white;
+    padding: 15px 25px;
+}
+
+header h1,
+header p {
+    margin: 5px 0;
+}
+
+main {
+    width: 300px;
+    margin: 50px auto;
+}
+
+main h2,
+main > p {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+}
+
+input,
+select,
+button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #111;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+}
