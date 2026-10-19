@@ -30,9 +30,15 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
 
+            <label>
+                <input type="checkbox" id="show-password">
+                Show password
+            </label>
+
             <button type="submit">Login</button>
         </form>
     </main>
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
