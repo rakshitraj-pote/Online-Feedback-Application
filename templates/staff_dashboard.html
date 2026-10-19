@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - Examination Center Experience</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Online Feedback Application</h1>
+        <p>Examination Center Experience</p>
+    </header>
+
+    <main>
+        <h2>Staff Dashboard</h2>
+
+        <p>Welcome, {{ username }}!</p>
+
+        <section>
+            <h3>Feedback Overview</h3>
+            <p>Total genuine student submissions: <strong>{{ total_feedback }}</strong></p>
+        </section>
+
+        <section>
+            <h3>Average Ratings by Category</h3>
+
+            {% if category_averages %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Average Rating (out of 5)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for category, average in category_averages %}
+                            <tr>
+                                <td>{{ category }}</td>
+                                <td>{{ average }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No genuine feedback has been submitted yet.</p>
+            {% endif %}
+        </section>
+
+        <form action="{{ url_for('logout') }}" method="POST">
+            <button type="submit">Logout</button>
+        </form>
+    </main>
+
+</body>
+</html>

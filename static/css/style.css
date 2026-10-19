@@ -49,3 +49,8 @@ button {
     margin-top: 20px;
     cursor: pointer;
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

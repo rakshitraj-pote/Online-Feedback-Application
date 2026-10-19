@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examination Feedback</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Online Feedback Application</h1>
+        <p>Examination Center Experience</p>
+    </header>
+
+    <main>
+        <h2>Examination Feedback</h2>
+
+        {% if already_submitted %}
+            <h3>You have already submitted your feedback.</h3>
+            <p>Thank you for participating!</p>
+        {% else %}
+            <p>Rate every question from 1 (Very Poor) to 5 (Excellent).</p>
+
+            <form method="POST" action="{{ url_for('feedback') }}">
+                {% set current_category = namespace(name='') %}
+
+                {% for question in questions %}
+                    {% if current_category.name != question[1] %}
+                        {% set current_category.name = question[1] %}
+                        <h3>{{ question[1] }}</h3>
+                    {% endif %}
+
+                    <fieldset>
+                        <legend>{{ question[2] }}</legend>
+
+                        {% for rating in range(1, 6) %}
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="question_{{ question[0] }}"
+                                    value="{{ rating }}"
+                                    required
+                                >
+                                {{ rating }}
+                            </label>
+                        {% endfor %}
+                    </fieldset>
+                {% endfor %}
+
+                <button type="submit">Submit Feedback</button>
+            </form>
+        {% endif %}
+
+        <p><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
+    </main>
+</body>
+</html>

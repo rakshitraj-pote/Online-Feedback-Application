@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | Examination Center Experience</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Online Feedback Application</h1>
+        <p>Examination Center Experience</p>
+    </header>
+
+    <main>
+        <h2>Welcome, {{ username }}!</h2>
+        <p>You are logged in as a student.</p>
+
+        <section>
+            <h3>Share Your Experience</h3>
+
+            <p>
+                Help us improve the examination experience by
+                sharing your feedback.
+            </p>
+
+            <p><strong>30 questions</strong> across 5 categories.</p>
+
+            <a href="{{ url_for('feedback') }}">
+                <button type="button">Give Feedback</button>
+            </a>
+        </section>
+
+        <form action="{{ url_for('logout') }}" method="POST">
+            <button type="submit">Logout</button>
+        </form>
+    </main>
+</body>
+</html>
